@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/svg+xml" href="./auto-faq.svg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto-FAQ / Price Bot — Anchor Prototype</title>
+<meta name="description" content="A prototype showing how automated replies handle repeat customer questions instantly.">
+<script>
+    (function () {
+        const themeKey = "anchor-demo-theme";
+        let savedTheme;
+
+        try {
+            savedTheme = window.localStorage.getItem(themeKey);
+        } catch (error) {
+            savedTheme = null;
+        }
+
+        const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = savedTheme === "dark" || savedTheme === "light"
+            ? savedTheme
+            : (prefersDark ? "dark" : "light");
+    }());
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./auto-faq.css">
+</head>
+<body>
+
+<header class="demo-header">
+    <div class="demo-header-actions">
+        <a href="../projects.html" class="demo-back">← Back to Projects</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+            <svg class="theme-icon theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.6 15.1A8.7 8.7 0 0 1 8.9 3.4 8.7 8.7 0 1 0 20.6 15.1Z"></path>
+            </svg>
+            <svg class="theme-icon theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <circle cx="12" cy="12" r="3.5"></circle>
+                <path d="M12 2.5v2M12 19.5v2M21.5 12h-2M4.5 12h-2M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4M18.7 18.7l-1.4-1.4M6.7 6.7 5.3 5.3"></path>
+            </svg>
+            <span class="theme-toggle-label" aria-hidden="true">Dark</span>
+        </button>
+    </div>
+    <div class="demo-title">
+        <span class="demo-eyebrow">PROJECT PROTOTYPE</span>
+        <h1>Auto-FAQ / Price Bot</h1>
+        <p>Answers the questions customers ask every day — price, stock, hours, location — before your team has to type the same reply twice.</p>
+    </div>
+</header>
+
+<main class="demo-main">
+
+    <section class="panel setup-panel">
+        <div class="panel-head">
+            <h2>What the bot already knows</h2>
+            <p>These are the answers you've taught it. Add one of your own and try it on the right.</p>
+        </div>
+
+        <ul id="faq-list" class="faq-list"></ul>
+
+        <form id="faq-form" class="faq-form">
+            <div class="faq-form-row">
+                <label>
+                    Trigger words
+                    <input type="text" id="faq-triggers" placeholder="e.g. warranty, guarantee" required>
+                </label>
+            </div>
+            <label>
+                Auto-reply
+                <textarea id="faq-answer" rows="2" placeholder="e.g. All items come with a 6-month warranty, receipt required." required></textarea>
+            </label>
+            <button type="submit">Teach the bot</button>
+        </form>
+    </section>
+
+    <section class="panel chat-panel">
+        <div class="panel-head chat-head">
+            <div>
+                <h2>Customer view</h2>
+                <p>Ask it something a customer might ask.</p>
+            </div>
+            <span class="status-dot">● Online</span>
+        </div>
+
+        <div id="chat-window" class="chat-window">
+            <div class="chat-bubble bot">
+                <p>Hi! Ask me about price, stock, hours, delivery, or location — I usually reply in under a second.</p>
+            </div>
+        </div>
+
+        <div class="quick-replies" id="quick-replies"></div>
+
+        <form id="chat-form" class="chat-form">
+            <input type="text" id="chat-input" placeholder="Type a question…" autocomplete="off" required>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+</main>
+
+<footer class="demo-footer">
+    <p>⚓ Built by Anchor — a working prototype, not a live product. Answers are matched by keyword for this demo.</p>
+</footer>
+
+<script src="./auto-faq.js"></script>
+</body>
+</html>
