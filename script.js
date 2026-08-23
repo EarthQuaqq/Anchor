@@ -10,7 +10,7 @@ const a0_0x250582=a0_0xd3bf;(function(_0x1dab44,_0x27bb30){const _0x162cd3=a0_0x
     const opt = countrySelect.selectedOptions[0];
     const digits = parseInt(opt?.dataset.digits || '9', 10);
     phoneInput.setAttribute('maxlength', digits);
-    phoneInput.setAttribute('placeholder', '0'.repeat(digits));
+    phoneInput.setAttribute('placeholder', opt?.dataset.placeholder || '0'.repeat(digits));
     if (hint) hint.textContent = `Enter ${digits} digits after the country code (no leading 0).`;
   }
 
