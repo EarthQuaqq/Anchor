@@ -2,33 +2,33 @@
 
 **Technology that moves your business forward.**
 
-Anchor is a Zimbabwe-based digital solutions studio building websites, custom software, and automation tools for small businesses. This repo contains the Anchor marketing site along with a set of prototype business tools.
+So this is Anchor — my digital solutions studio. I build websites, custom software, and automation tools for businesses that need to ditch the manual spreadsheets and notebooks. This repo has the main site plus a few prototype tools I've been building out.
 
 🔗 **Live site:** [anchor-kohl-seven.vercel.app](https://anchor-kohl-seven.vercel.app)
 
-## What's in this repo
+## What's here
 
-| Page | Description |
+| Page | What it does |
 |---|---|
-| `index.html` | Main landing page for Anchor |
-| `projects.html` | Showcase of projects and work |
-| `stock-management/` | Inventory management prototype |
+| `index.html` | The main site — services, pricing, contact form |
+| `projects.html` | Some of the stuff I've built |
+| `stock-management/` | Inventory tracking prototype |
 | `quote-invoice/` | Quote & invoice generator prototype |
 | `auto-faq/` | Auto-FAQ / price bot prototype |
 
-## Tech stack
+## Built with
 
-Plain HTML, CSS, and JavaScript — no build step or framework required.
+Just plain HTML, CSS, and JS. No framework, no build step — keeps things simple and fast.
 
 ## Deployment
 
-Hosted on [Vercel](https://vercel.com), auto-deploying from the `main` branch on every push. The site also uses Vercel Speed Insights and Web Analytics to track performance and traffic.
+Runs on [Vercel](https://vercel.com), auto-deploys every time I push to `main`. Also got Speed Insights and Web Analytics running so I can actually see how the site's performing.
 
-## Getting started locally
-
-Clone the repo and open `index.html` in a browser — no installation needed:
+## Want to run it yourself?
 
 ```
 git clone https://github.com/EarthQuaqq/Anchor.git
 cd Anchor
 ```
+
+Then just open `index.html` in your browser. That's it — no npm install, no config, nothing to break.
