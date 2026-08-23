@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/svg+xml" href="./quote-invoice.svg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quote & Invoice Generator — Anchor Prototype</title>
+<meta name="description" content="A prototype for building a clean, shareable quote in under a minute instead of retyping it in WhatsApp each time.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./quote-invoice.css">
+<script>
+    (function () {
+        try {
+            var storedTheme = localStorage.getItem("anchor-demo-theme");
+            var theme = storedTheme === "dark" || storedTheme === "light"
+                ? storedTheme
+                : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+            document.documentElement.dataset.theme = theme;
+        } catch (error) {
+            document.documentElement.dataset.theme = "light";
+        }
+    }());
+</script>
+</head>
+<body>
+
+<header class="demo-header no-print">
+    <div class="demo-header-top">
+        <a href="../projects.html" class="demo-back">← Back to Projects</a>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
+            <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+            <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path></svg>
+            <span id="theme-toggle-label">Dark mode</span>
+        </button>
+    </div>
+    <div class="demo-title">
+        <span class="demo-eyebrow">PROJECT PROTOTYPE</span>
+        <h1>Quote &amp; Invoice Generator</h1>
+        <p>Build a clean, numbered quote in under a minute — instead of retyping the same prices into WhatsApp every time.</p>
+    </div>
+</header>
+
+<main class="demo-main">
+
+    <section class="panel form-panel no-print">
+        <div class="panel-head">
+            <h2>Quote details</h2>
+            <p>Fill this in — the preview on the right updates as you type.</p>
+        </div>
+
+        <form id="quote-form" class="quote-form">
+            <div class="form-row two-col">
+                <label>
+                    Your business name
+                    <input type="text" id="business-name" placeholder="Anchor Electronics" value="Anchor">
+                </label>
+                <label>
+                    Your phone / WhatsApp
+                    <input type="text" id="business-phone" placeholder="+263 78 123 4567">
+                </label>
+            </div>
+
+            <div class="form-row two-col">
+                <label>
+                    Client name
+                    <input type="text" id="client-name" placeholder="e.g. Tafadzwa Moyo">
+                </label>
+                <label>
+                    Client phone
+                    <input type="text" id="client-phone" placeholder="+263 77 000 0000">
+                </label>
+            </div>
+
+            <div class="items-head">
+                <h3>Items / Services</h3>
+                <button type="button" id="add-item">+ Add line</button>
+            </div>
+
+            <div id="items-list" class="items-list"></div>
+
+            <div class="form-row two-col">
+                <label>
+                    Discount (%)
+                    <input type="number" id="discount" min="0" max="100" value="0">
+                </label>
+                <label>
+                    Valid until
+                    <input type="date" id="valid-until">
+                </label>
+            </div>
+
+            <label>
+                Note <em>(optional)</em>
+                <textarea id="quote-note" rows="2" placeholder="e.g. 50% deposit required to begin work."></textarea>
+            </label>
+        </form>
+    </section>
+
+    <section class="panel preview-panel">
+        <div class="preview-toolbar no-print">
+            <button type="button" id="print-btn">🖨️ Print / Save as PDF</button>
+            <button type="button" id="whatsapp-btn">💬 Share on WhatsApp</button>
+        </div>
+
+        <div id="quote-preview" class="quote-preview">
+            <div class="demo-watermark" aria-hidden="true"><span>DEMO</span></div>
+
+            <div class="quote-preview-head">
+                <div>
+                    <p class="quote-brand">⚓ <span id="preview-business">Anchor</span></p>
+                    <p class="quote-meta" id="preview-business-phone"></p>
+                </div>
+                <div class="quote-number-block">
+                    <p class="quote-number" id="preview-quote-no">QUOTE #0001</p>
+                    <p class="quote-date" id="preview-date"></p>
+                </div>
+            </div>
+
+            <div class="quote-parties">
+                <div>
+                    <p class="party-label">Prepared for</p>
+                    <p class="party-name" id="preview-client-name">—</p>
+                    <p class="party-meta" id="preview-client-phone"></p>
+                </div>
+                <div>
+                    <p class="party-label">Valid until</p>
+                    <p class="party-name" id="preview-valid-until">—</p>
+                </div>
+            </div>
+
+            <table class="quote-table">
+                <thead>
+                    <tr><th>Description</th><th>Qty</th><th>Unit price</th><th>Total</th></tr>
+                </thead>
+                <tbody id="preview-items"></tbody>
+            </table>
+
+            <div class="quote-totals">
+                <div class="quote-totals-row"><span>Subtotal</span><span id="preview-subtotal">$0.00</span></div>
+                <div class="quote-totals-row" id="preview-discount-row"><span>Discount</span><span id="preview-discount">$0.00</span></div>
+                <div class="quote-totals-row grand"><span>Total</span><span id="preview-total">$0.00</span></div>
+            </div>
+
+            <p class="quote-note-preview" id="preview-note"></p>
+
+            <p class="quote-footer">Generated with Anchor · anchorstudio.digital@gmail.com</p>
+        </div>
+    </section>
+
+</main>
+
+<footer class="demo-footer no-print">
+    <p>⚓ Built by Anchor — a working prototype, not a live product. Nothing here is saved or sent anywhere.</p>
+</footer>
+
+<div id="demo-limit-modal" class="demo-modal no-print" hidden>
+    <div class="demo-modal-backdrop" id="demo-modal-backdrop"></div>
+    <div class="demo-modal-card" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title">
+        <h3 id="demo-modal-title">You've hit the demo limit</h3>
+        <p>This prototype caps exports at 3 per visit. The full version has no limits, your own branding, and saved quote history.</p>
+        <div class="demo-modal-actions">
+            <a href="mailto:anchorstudio.digital@gmail.com?subject=Quote%20%26%20Invoice%20Generator%20%E2%80%94%20Full%20Version" class="demo-modal-cta">Get the full version</a>
+            <button type="button" id="demo-modal-close" class="demo-modal-close">Maybe later</button>
+        </div>
+    </div>
+</div>
+
+<script src="./quote-invoice.js"></script>
+<script>window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments);};</script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
