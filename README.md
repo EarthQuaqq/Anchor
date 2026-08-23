@@ -18,7 +18,7 @@ So this is Anchor — my digital solutions studio. I build websites, custom soft
 
 ## Built with
 
-Just plain HTML, CSS, and JS. No framework, no build step — keeps things simple and fast.
+Just plain HTML, CSS, and JS.The code is Obfuscated and Minificated too. No framework, no build step — keeps things simple and fast.
 
 ## Deployment
 
