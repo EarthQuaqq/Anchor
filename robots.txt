@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://anchor-kohl-seven.vercel.app/sitemap.xml
+Sitemap: https://anchor-studios.web.app/sitemap.xml
