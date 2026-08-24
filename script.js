@@ -23,3 +23,4 @@ const a0_0x250582=a0_0xd3bf;(function(_0x1dab44,_0x27bb30){const _0x162cd3=a0_0x
   countrySelect.addEventListener('change', updateForCountry);
   updateForCountry();
 })();
+(function(){var _0x9f=document,_0x9a=_0x9f["querySelector"]("#qf7k2");_0x9a&&window["addEventListener"]("scroll",function(){window["scrollY"]>0x190?_0x9a["classList"]["add"]("show"):_0x9a["classList"]["remove"]("show");});}());
