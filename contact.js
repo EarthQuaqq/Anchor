@@ -46,8 +46,12 @@ contactPathButtons.forEach((button) => {
     projectField.placeholder = mode.placeholder;
     inquirySubmit.textContent = mode.submit;
 
-    contactPathButtons.forEach((item) => item.classList.remove('is-selected'));
+    contactPathButtons.forEach((item) => {
+      item.classList.remove('is-selected');
+      item.setAttribute('aria-pressed', 'false');
+    });
     button.classList.add('is-selected');
+    button.setAttribute('aria-pressed', 'true');
     contactForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
     window.setTimeout(() => document.getElementById('inquiry-name')?.focus({ preventScroll: true }), 500);
   });
