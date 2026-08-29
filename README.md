@@ -4,7 +4,7 @@
 
 So this is Anchor — my digital solutions studio. I build websites, custom software, and automation tools for businesses that need to ditch the manual spreadsheets and notebooks. This repo has the main site plus a few prototype tools I've been building out.
 
-🔗 **Live site:** [anchor-kohl-seven.vercel.app](https://anchor-kohl-seven.vercel.app)
+🔗 **Live site:** [anchor-studios.web.app](https://anchor-studios.web.app)
 
 ## What's here
 
