@@ -6,6 +6,9 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "rewrites": [
+      { "source": "/contact", "destination": "/index.html" }
+    ],
     "headers": [
       {
         "source": "**",
