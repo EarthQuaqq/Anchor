@@ -23,7 +23,7 @@ The code is Obfuscated and Minificated.
 
 ## Deployment
 
-Runs on [Vercel](https://vercel.com), auto-deploys every time I push to `main`. Also got Speed Insights and Web Analytics running so I can actually see how the site's performing.
+Runs on [Firebase](https://firebase.google.com/), auto-deploys every time I push to `main`. Also got Speed Insights and Web Analytics running so I can actually see how the site's performing.
 
 ## Want to run it yourself?
 
