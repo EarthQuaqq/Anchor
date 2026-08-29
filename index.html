@@ -10,12 +10,27 @@
       name="description"
       content="Anchor builds websites, business software, automation, and digital solutions that help growing businesses save time and grow."
     />
+    <link rel="canonical" href="https://anchor-studios.web.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Anchor | Technology That Moves Your Business Forward" />
+    <meta property="og:description" content="Websites, custom software, inventory systems, and automation built around real business needs." />
+    <meta property="og:url" content="https://anchor-studios.web.app/" />
+    <meta name="twitter:card" content="summary" />
+    <script>
+      if (window.location.pathname.replace(/\/+$/, "") === "/contact") {
+        document.documentElement.classList.add("contact-route");
+        document.title = "Contact Anchor | Request a Quote or Free Mockup";
+        document.querySelector('link[rel="canonical"]')?.setAttribute("href", "https://anchor-studios.web.app/contact");
+      } else {
+        document.documentElement.classList.add("home-route");
+      }
+    </script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header class="site-header">
       <nav class="site-nav">
-        <a href="#" class="brand">
+        <a href="/#hero" class="brand" aria-label="Anchor home">
     <span class="logo-text">Anchor</span>
 </a>
         <button
@@ -29,14 +44,14 @@
           <span class="menu-toggle-lines" aria-hidden="true"></span>
         </button>
         <ul id="primary-nav" class="primary-nav">
-          <li><a href="#hero">HOME</a></li>
-          <li><a href="#about">ABOUT</a></li>
-          <li><a href="#problems">PROBLEMS WE SOLVE</a></li>
-          <li><a href="#services">SERVICES</a></li>
-          <li><a href="#industries">INDUSTRIES</a></li>
-          <li><a href="#why-anchor">WHY ANCHOR</a></li>
-          <li><a href="#process">PROCESS</a></li>
-          <li><a href="#projects">PROJECT PROTOTYPES</a></li>
+          <li><a href="/#hero">HOME</a></li>
+          <li><a href="/#about">ABOUT</a></li>
+          <li><a href="/#problems">PROBLEMS WE SOLVE</a></li>
+          <li><a href="/#services">SERVICES</a></li>
+          <li><a href="/#industries">INDUSTRIES</a></li>
+          <li><a href="/#why-anchor">WHY ANCHOR</a></li>
+          <li><a href="/#process">PROCESS</a></li>
+          <li><a href="/#projects">PROJECT PROTOTYPES</a></li>
           <li><a href="#contact">CONTACT</a></li>
         </ul>
       </nav>
@@ -50,9 +65,7 @@
             solutions designed around your business goals.
           </p>
           <div class="hero-buttons">
-            <button id="start-project" type="button" data-start-project>
-  Start Your Project
-</button>
+            <a id="start-project" class="button" href="#contact">Start Your Project</a>
             <a href="projects.html" class="button secondary-btn">View Our Work</a>
           </div>
                 <a class="hero-whatsapp"
@@ -271,14 +284,35 @@
 </section>
 <section id="contact">
     <div class="contact-intro">
-        <p class="contact-label">START A PROJECT</p>
-        <h2>Let's Build Together</h2>
+        <p class="contact-label">CHOOSE YOUR NEXT STEP</p>
+        <h2>Ready when you are.</h2>
         <p>
-            Tell us a little about your business and the solution you have in mind.
-            We'll get back to you to discuss the next step.
+            Pick the easiest way to begin. There is no pressure and no commitment
+            before we understand what your business actually needs.
         </p>
+        <div class="contact-paths" aria-label="Ways to contact Anchor">
+            <button type="button" class="contact-path is-selected" data-contact-path="project">
+                <span class="contact-path-icon" aria-hidden="true">01</span>
+                <span><strong>Start a project</strong><small>Share the details and receive a clear scope, timeline, and quote.</small></span>
+            </button>
+            <button type="button" class="contact-path" data-contact-path="quote">
+                <span class="contact-path-icon" aria-hidden="true">02</span>
+                <span><strong>Request a quote</strong><small>Tell us what you need and receive a clear estimate.</small></span>
+            </button>
+            <button type="button" class="contact-path" data-contact-path="mockup">
+                <span class="contact-path-icon" aria-hidden="true">03</span>
+                <span><strong>Request a free mockup</strong><small>See a focused concept before deciding on a full project.</small></span>
+            </button>
+        </div>
+        <p class="contact-assurance">Direct founder contact &middot; Clear scope &middot; No surprise pricing</p>
     </div>
     <form id="inquiry" class="inquiry-form" action="https://formspree.io/f/xrenvygj" method="POST">
+        <div class="inquiry-form-heading">
+            <p class="contact-label">PROJECT DETAILS</p>
+            <h3 id="contact-form-title">Start your project</h3>
+            <p id="contact-form-description">Tell us what you need. Anchor will confirm the scope, timeline, and pricing.</p>
+        </div>
+        <input id="inquiry-type" name="inquiry_type" type="hidden" value="Project inquiry" />
         <div class="form-grid">
             <label>
                 Your name
@@ -381,10 +415,11 @@
             </label>
         </div>
         <label>
-            What would you like to build?
-            <textarea name="project" rows="4" placeholder="For example: a website, inventory system, or business automation tool" required></textarea>
+            <span id="project-field-label">What would you like to build?</span>
+            <textarea id="inquiry-project" name="project" rows="4" placeholder="For example: a website, inventory system, or business automation tool" required></textarea>
         </label>
-        <button type="submit">Send Inquiry</button>
+        <button id="inquiry-submit" type="submit">Send Project Details</button>
+        <p class="contact-privacy">Your details are only used to respond to this inquiry.</p>
         <p id="inquiry-status" class="form-status" role="status" aria-live="polite"></p>
         <a id="whatsapp-follow-up" class="whatsapp-follow-up" href="#" target="_blank" rel="noopener" hidden>
             💬 Continue This Inquiry on WhatsApp
@@ -406,9 +441,9 @@
         </div>
         <div class="footer-links">
             <h3>Quick Links</h3>
-            <a href="#hero">Home</a>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
+            <a href="/#hero">Home</a>
+            <a href="/#about">About</a>
+            <a href="/#services">Services</a>
             <a href="projects.html">Projects</a>
             <a href="#contact">Contact</a>
             <a href="founder.html">Founder</a>
@@ -454,8 +489,6 @@
     <span class="qf7k2-t"><strong>Meet Alpha</strong><em>The founder</em></span>
 </a>
 <script src="script.js"></script>
-<script>window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments);};</script>
-<script defer src="/_vercel/speed-insights/script.js"></script>
-<script defer src="/_vercel/insights/script.js"></script>
+<script src="contact.js"></script>
 </body>
 </html>

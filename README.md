@@ -4,7 +4,7 @@
 
 So this is Anchor — my digital solutions studio. I build websites, custom software, and automation tools for businesses that need to ditch the manual spreadsheets and notebooks. This repo has the main site plus a few prototype tools I've been building out.
 
-🔗 **Live site:** [anchor-kohl-seven.vercel.app](https://anchor-kohl-seven.vercel.app)
+🔗 **Live site:** [anchor-studios.web.app](https://anchor-studios.web.app)
 
 ## What's here
 
@@ -23,7 +23,7 @@ The code is Obfuscated and Minificated.
 
 ## Deployment
 
-Runs on [Vercel](https://vercel.com), auto-deploys every time I push to `main`. Also got Speed Insights and Web Analytics running so I can actually see how the site's performing.
+Runs on [Firebase](https://firebase.google.com/) and auto-deploys every time I push to `main`.
 
 ## Want to run it yourself?
 
