@@ -317,3 +317,30 @@
     width: 100%;
   }
 }
+
+/* ===== Service detail pages ===== */
+.service-detail{max-width:900px}
+.service-detail-intro{color:var(--muted);font-size:1.12rem;margin-bottom:8px;max-width:640px}
+.service-detail h1{font-family:Manrope,sans-serif;font-size:clamp(2.1rem,4.4vw,3.2rem);letter-spacing:-.05em;line-height:1.12;margin-bottom:18px}
+.service-detail h2{font-size:1.5rem;letter-spacing:-.03em;margin-bottom:16px;margin-top:48px}
+.service-detail-grid{display:grid;gap:40px;grid-template-columns:1.3fr 0.9fr;margin-top:36px}
+.check-list{list-style:none}
+.check-list li{border-top:1px solid var(--line);color:var(--muted);font-size:.98rem;padding:14px 0 14px 28px;position:relative}
+.check-list li:first-child{border-top:none}
+.check-list li::before{content:"✓";color:var(--blue);font-weight:700;left:0;position:absolute}
+.service-price-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 20px 45px rgba(20,49,99,.08);height:fit-content;padding:30px;position:sticky;top:calc(var(--header-height) + 24px)}
+.service-price-card p.section-label{margin-bottom:6px}
+.service-price-card strong{display:block;font-family:Manrope,sans-serif;font-size:2rem;letter-spacing:-.03em;margin-bottom:4px}
+.service-price-card .price-note{color:var(--muted);font-size:.86rem;margin-bottom:22px}
+.service-price-card .button{width:100%}
+.service-faq{border-top:1px solid var(--line);padding:22px 0}
+.service-faq:last-of-type{border-bottom:1px solid var(--line)}
+.service-faq h3{font-size:1.02rem;margin-bottom:8px}
+.service-faq p{color:var(--muted);font-size:.96rem}
+.other-services-grid a.other-service-tile{color:inherit;text-decoration:none}
+@media (max-width:768px){
+  .service-detail-grid{grid-template-columns:1fr}
+  .service-price-card{position:static}
+}
+.service-learn-more{color:var(--blue);display:inline-block;font-size:.85rem;font-weight:700;margin-top:14px;text-decoration:none}
+.service-learn-more:hover{color:var(--blue-dark)}
