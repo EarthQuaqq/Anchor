@@ -28,7 +28,7 @@
 .founder-page-back:hover{color:var(--blue-dark)}
 .founder-card{align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:0 20px 45px rgba(20,49,99,.08);display:grid;gap:48px;grid-template-columns:0.4fr 0.6fr;margin-top:20px;overflow:hidden;padding:32px}
 .founder-photo{border-radius:14px;display:block;height:auto;object-fit:cover;width:100%}
-.founder-bio h2{font-family:Manrope,sans-serif;font-size:clamp(1.8rem,3.4vw,2.6rem);letter-spacing:-.04em;margin-bottom:6px}
+.founder-bio h1{font-family:Manrope,sans-serif;font-size:clamp(1.8rem,3.4vw,2.6rem);letter-spacing:-.04em;margin-bottom:6px}
 .founder-title{color:var(--blue);font-size:.85rem;font-weight:700;letter-spacing:.08em;margin-bottom:20px;text-transform:uppercase}
 .founder-bio p:not(.founder-title){color:var(--muted);font-size:1.08rem;margin-bottom:16px}
 #founder-page{max-width:980px}
@@ -328,6 +328,12 @@
 .check-list li{border-top:1px solid var(--line);color:var(--muted);font-size:.98rem;padding:14px 0 14px 28px;position:relative}
 .check-list li:first-child{border-top:none}
 .check-list li::before{content:"✓";color:var(--blue);font-weight:700;left:0;position:absolute}
+.service-detail-grid>div>p{color:var(--muted);font-size:.98rem;margin-top:14px}
+.service-detail-grid ol{counter-reset:step;list-style:none}
+.service-detail-grid ol li{border-top:1px solid var(--line);color:var(--muted);counter-increment:step;font-size:.98rem;padding:14px 0 14px 34px;position:relative}
+.service-detail-grid ol li:first-child{border-top:none}
+.service-detail-grid ol li::before{color:var(--blue);content:counter(step);font-size:.85rem;font-weight:700;left:0;position:absolute}
+.service-detail-grid ol+p{color:var(--muted);font-size:.9rem;margin-top:14px}
 .service-price-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 20px 45px rgba(20,49,99,.08);height:fit-content;padding:30px;position:sticky;top:calc(var(--header-height) + 24px)}
 .service-price-card p.section-label{margin-bottom:6px}
 .service-price-card strong{display:block;font-family:Manrope,sans-serif;font-size:2rem;letter-spacing:-.03em;margin-bottom:4px}

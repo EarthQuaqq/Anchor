@@ -6,8 +6,8 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
-      { "source": "/contact", "destination": "/index.html" }
+    "redirects": [
+      { "source": "/contact", "destination": "/#contact", "type": 301 }
     ],
     "headers": [
       {
