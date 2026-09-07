@@ -251,7 +251,7 @@
 }
 
 .contact-route .site-header .brand,
-.contact-route .footer-links a:not([href="/contact"]) {
+.contact-route .footer-links a:not([href="/#contact"]) {
   cursor: pointer;
 }
 
