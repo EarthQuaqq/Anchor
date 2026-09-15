@@ -1,0 +1,11 @@
+/* Keep Anchor's back-to-top control clear of the Tawk.to chat launcher. */
+#back-to-top {
+  bottom: 105px;
+}
+
+@media (max-width: 640px) {
+  #back-to-top {
+    bottom: 94px;
+    right: 20px;
+  }
+}
