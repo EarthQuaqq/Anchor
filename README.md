@@ -22,8 +22,7 @@ Just plain HTML, CSS, and JS. No framework, no build step — keeps things simpl
 The code is Obfuscated and Minificated.
 
 ## Deployment
-
-Runs on [Firebase](https://firebase.google.com/) and auto-deploys every time I push to `main`.
+Auto-deploys every time I push to `main`.
 
 ## Want to run it yourself?
 
