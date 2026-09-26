@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "anchor-studios"
+  },
+  "targets": {
+    "anchor-studios": {
+      "hosting": {
+        "main": [
+          "anchor-main"
+        ],
+        "legacy": [
+          "anchor-studios"
+        ]
+      }
+    }
   }
 }
