@@ -22,8 +22,7 @@
   <header class="work-header">
     <nav class="work-nav">
       <a href="./index.html" class="work-logo"><img src="assets/icons/anchor.svg" alt=""> Anchor</a>
-      <button class="work-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="work-links"><span></span><span></span><span></span></button>
-      <div class="work-links" id="work-links">
+      <div class="work-links">
         <a href="./index.html">Home</a>
         <a href="./work.html" class="active">Work</a>
         <a href="./projects.html">Projects</a>
@@ -66,7 +65,7 @@
     <section class="work-cta">
       <p class="eyebrow">YOUR PROJECT</p>
       <h2>Need something built?</h2>
-      <p>Seen something you like? Tell us what your business needs and we’ll map out the right solution.</p>
+      <p>Tell Anchor what your business needs and we'll work out the right approach.</p>
       <a href="/#contact">Start a project <span>→</span></a>
     </section>
   </main>
@@ -74,20 +73,5 @@
   <footer class="work-footer">
     <div><strong><img src="assets/icons/anchor.svg" alt=""> Anchor</strong><p>Digital solutions built for real businesses.</p></div>
     <p>© 2026 Anchor. All rights reserved.</p>
-  </footer>
-  <script>
-    const workMenuToggle = document.querySelector('.work-menu-toggle');
-    const workLinks = document.querySelector('.work-links');
-    if (workMenuToggle && workLinks) {
-      workMenuToggle.addEventListener('click', () => {
-        const isOpen = workLinks.classList.toggle('is-open');
-        workMenuToggle.setAttribute('aria-expanded', String(isOpen));
-      });
-      workLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-        workLinks.classList.remove('is-open');
-        workMenuToggle.setAttribute('aria-expanded', 'false');
-      }));
-    }
-  </script>
-</body>
+  </footer></body>
 </html>
