@@ -8,7 +8,18 @@
         "**/.*",
         "**/node_modules/**"
       ],
-      "redirects": [],
+      "redirects": [
+        {
+          "source": "/index.html",
+          "destination": "/",
+          "type": 301
+        },
+        {
+          "source": "/projects",
+          "destination": "/projects.html",
+          "type": 301
+        }
+      ],
       "headers": [
         {
           "source": "**",
